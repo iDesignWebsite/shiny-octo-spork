@@ -1,0 +1,56 @@
+@import "../abstract/variables";
+
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: $font-14;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    position: relative;
+
+    // transition
+    transition: all 0.3s;
+    border: none;
+  }
+
+  &:focus,
+  &:active,
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2.4rem rgba($color-black, $alpha: 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 10rem;
+    transition: all 0.3s;
+  }
+
+  &--main {
+    background-color: $color-white;
+    color: $color-gray-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+}
